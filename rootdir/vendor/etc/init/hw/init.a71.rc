@@ -48,6 +48,12 @@ on boot
     chown radio system /sys/power/cpufreq_table
     chmod 0664 /sys/power/cpufreq_table
 
+    chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
+    chmod 0660 /sys/class/drm/sde-crtc-0/measured_fps
+
+    chown system system /sys/class/thermal/thermal_zone78/temp
+    chmod 0660 /sys/class/thermal/thermal_zone78/temp
+
 on post-fs
 
 on post-fs-data
@@ -125,6 +131,8 @@ on post-fs
     mkdir /efs/carrier 0755 radio system
     chown radio system /efs/carrier
     chown radio system /efs/carrier/HiddenMenu
+
+
 
 # MST/NFC Switch
     chown system system /dev/mst_ctrl
